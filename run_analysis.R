@@ -5,6 +5,8 @@
 ## 4. Appropriately labels the data set with descriptive variable names.
 ## 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+
+##Merges the training and the test sets to create one data set
 #Step 1: Load package
 
 library(dplyr)
@@ -64,8 +66,7 @@ rm(trainingSubjects, trainingValues, trainingActivity,
 colnames(humanActivity) <- c("subject", features[, 2], "activity")
 
 
-##These steps are for obtaining the mean and Standard Deviation
-
+##Extracts only the measurements on the mean and standard deviation for each measurement.
 #Step 11: determine columns of data set to keep 
 
 columnsToKeep <- grepl("subject|activity|mean|std", colnames(humanActivity))
@@ -75,9 +76,8 @@ humanActivity <- humanActivity[, columnsToKeep]
 humanActivity$activity <- factor(humanActivity$activity, 
                                  levels = activities[, 1], labels = activities[, 2])
 
-
-##Re-label column names
-
+##Use descriptive activity names to name the activities in the data set
+##Appropriately labels the data set with descriptive variable names
 #Step 12: get column names
 humanActivityCols <- colnames(humanActivity)
 
@@ -100,8 +100,7 @@ humanActivityCols <- gsub("BodyBody", "Body", humanActivityCols)
 #Step 16: use new labels as column names
 colnames(humanActivity) <- humanActivityCols
 
-
-###Create tidy set with mean values
+##Create tidy set with mean values
 
 #Step 17: grouping and summarising
 humanActivityMeans <- humanActivity %>% 
