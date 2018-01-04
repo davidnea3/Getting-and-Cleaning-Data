@@ -21,5 +21,7 @@ From the data set in step 4, creates a second, independent tidy data set with th
 # Files
 
 run_Analysis.R: The analysis script. This downloads the dataset, processes and tidies it for analysis then creates a tidy summary dataset for the final result. 
+
 TidyText.txt: The final tidy summary dataset. Presents the mean of each measurement variable for each subject and activity combination.
+
 CodeBook.md: Description of the variables, the data, and any transformations or work performed to clean up the data.
