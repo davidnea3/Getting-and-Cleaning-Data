@@ -66,4 +66,4 @@ combineall <- bind_cols(combine_subjects, activies, dataMeanStd)
 meansummary <- combineall %>% arrange(subject, activity) %>% group_by(subject, activity) %>% summarize_each(funs(mean))
 summaryLabels <- c("Subject", "Activity", paste("Mean", dataLabels, sep = "_"))
 names(meansummary) <- summaryLabels
-write.table(meansummary, file = "finalTidySummary.txt")
+write.table(meansummary, file = "TidyText.txt")
